@@ -2,6 +2,7 @@
 node_modules/
 
 # Build folders
+docker-compose.yml
 dist/
 build/
 

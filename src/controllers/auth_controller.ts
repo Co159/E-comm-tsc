@@ -66,7 +66,7 @@ export const Login = async (req: Request, res: Response) => {
             const isMatch = await bcrypt.compare(password, user?.dataValues?.password);
             console.log('isMatch', isMatch)
             if (!isMatch) {
-                res.status(404).json({
+                res.status(401).json({
                     status: responseMessage.status.error,
                     message: responseMessage.user.invalidCredentials,
                 });

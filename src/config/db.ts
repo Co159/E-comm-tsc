@@ -25,6 +25,28 @@ async function testConnection() {
     }
 }
 
+// async function testConnection(retries = 5, delay = 5000) {
+//     while (retries) {
+//         try {
+//             await sequelize.authenticate();
+//             console.log(" Connected to PostgreSQL DB!");
+//             await sequelize.sync({ alter: true });
+//             console.log(' Models synced');
+//             break; 
+//         } catch (error) {
+//             console.log(' Unable to connect to the database:', error);
+//             retries--;
+//             if (retries === 0) {
+//                 console.error(" Exhausted all retries. Exiting...");
+//                 process.exit(1);
+//             }
+//             console.log(` Retrying in ${delay / 1000}s...`);
+//             await new Promise((res) => setTimeout(res, delay));
+//         }
+//     }
+// }
+
+
 testConnection();
 
 export default sequelize;
