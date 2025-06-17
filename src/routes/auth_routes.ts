@@ -26,17 +26,43 @@ authRoutes.post("/register", userValidation, Register);
  *             properties:
  *               email:
  *                 type: string
+ *                 example: admin@gmail.com
  *               password:
  *                 type: string
+ *                 example: admin
  *     responses:
  *       200:
  *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Login successful
+ *                 token:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       example: 1
+ *                     name:
+ *                       type: string
+ *                       example: Admin User
+ *                     email:
+ *                       type: string
+ *                       example: admin@gmail.com
  *       401:
  *         description: Invalid credentials
+ *        
  *       404:
- *          description: User not register 
- * 
+ *         description: User not registered
  */
+
 
 authRoutes.post("/login", Login);
 authRoutes.post("/verify-otp", verifyOTP);
